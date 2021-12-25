@@ -1,21 +1,20 @@
 package main
 
-
 import (
 	"os"
-	"github.com/gin-gonic/gin"
 	"restaurant-management/database"
-	"restaurant-management/routes"
 	"restaurant-management/middleware"
+	"restaurant-management/routes"
+
+	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-var foodCollection = *mongo.Collection = database.OpenCollection(database.Client, "gofood")
-
+var foodCollection *mongo.Collection = database.OpenCollection(database.Client, "gofood")
 
 func main() {
 	port := os.Getenv("PORT")
-	if port == ""{
+	if port == "" {
 		port = "8000"
 	}
 	router := gin.New()

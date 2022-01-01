@@ -7,8 +7,8 @@ import (
 )
 
 func UserRoutes(icomingRoutes *gin.Engine) {
-	icomingRoutes.get("/users", controller.GetUsers())
-	icomingRoutes.get("/users/:user_id", controller.GetUser())
+	icomingRoutes.GET("/users", controller.GetUsers())
+	icomingRoutes.GET("/users/:user_id", controller.GetUser())
 	icomingRoutes.POST("/users/signup", controller.SignUp())
 	icomingRoutes.POST("/users/login", controller.Login())
 

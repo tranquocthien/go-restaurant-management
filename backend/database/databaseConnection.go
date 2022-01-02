@@ -24,6 +24,7 @@ func ConnectMongoDB(user, password string) *MongoDB {
 	}
 
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
+
 	err = client.Connect(ctx)
 	if err != nil {
 		panic(err)
@@ -34,7 +35,7 @@ func ConnectMongoDB(user, password string) *MongoDB {
 		panic(err)
 	}
 
-	fmt.Println("connect to database successfully")
+	fmt.Println("connected to database successfully")
 	Mongo.Client = client
 	return Mongo
 }

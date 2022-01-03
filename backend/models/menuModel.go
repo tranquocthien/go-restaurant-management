@@ -7,13 +7,13 @@ import (
 )
 
 type Menu struct {
-	ID         primitive.ObjectID `json:"id,omitempty" bson:"_id,omitempty"` // tag golang
-	Name       string
-	Category   string
-	Start_Date *time.Time
-	End_Date   *time.Time
-	Created_at time.Time `json:"created_at"`
-	Updated_at time.Time `json:"updated_at"`
-	Deleted_at time.Time `json:"deleted_at"`
-	Menu_id    string
+	ID         primitive.ObjectID `bson:"_id"` // tag golang
+	Name       string             `json:"name" validate:"required"`
+	Category   string             `json:"category" validate:"required"`
+	Start_Date *time.Time         `json:"start_date"`
+	End_Date   *time.Time         `json:"end_date"`
+	Created_at time.Time          `json:"created_at"`
+	Updated_at time.Time          `json:"updated_at"`
+	Deleted_at time.Time          `json:"deleted_at"`
+	Menu_id    string             `json:"food_id"`
 }
